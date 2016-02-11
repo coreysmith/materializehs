@@ -1,0 +1,165 @@
+<div class="top-wrapper w-navigation">
+  <div class="top-wrapper wo-navigation">
+      
+    <header id="header-wrapper" class="header-wrapper wrapper" role="banner">
+      <div class="inner">
+        <div id="header-container" class="container">
+          <div class="inner row">
+      
+            <!-- branding -->
+            <div id="site-info" class="site-info col s11 m3">
+              <div class="inner">
+                   {% logo "my_logo" label="Logo", overrideable=False %}
+              </div> <!-- .inner -->
+            </div> <!-- .site-info -->
+      
+            <!-- header block -->
+            <div id="header" class="header-region region col s12 m8 hide-on-med-and-down">
+              <div class="inner">
+								<!-- ==================================================== -->
+								<!-- = Either create a global module and insert here or = -->
+								<!-- = create global content in material-header.html.   = -->
+								<!-- ==================================================== -->
+              </div>
+            </div> <!-- #header -->
+      
+          </div> <!-- .header-inner -->
+        </div> <!-- #header-container -->
+      </div> <!-- .header-wrapper-inner -->
+    </header> <!-- #header-wrapper -->
+
+  </div> <!-- .top-wrapper .wo-navigation-->
+
+
+
+
+    <nav id="mega-menu-wrapper" class="mega-menu-wrapper wrapper">
+      <div class="shrinking-icon"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo-icon"><img alt="<?php print t('Home'); ?>" src="/<?php $theme_path = drupal_get_path('theme', variable_get('theme_default', NULL)); echo $theme_path; ?>/logo-icon.png"></a></div>
+      <div class="inner">
+      <div id="mega-menu-container" class="container">
+        <div class="inner row">
+
+        <ul class="mega-menu mega-level-1 first hide-on-med-and-down">
+  
+          <!-- first main menu item -->
+  
+          <li class="first"><a href="/">Home</a>
+    
+            <ul class="mega-level-2 wide">
+              <li class="first has-children"><a href="#">Link Here</a>
+        
+                <div class="plus-button"></div>
+                <ul class="mega-level-3">
+                  <li class="first"><a href="#">Link Here</a></li>
+                  <li class="second"><a href="#">Link Here</a></li>
+                  <li class="third"><a href="#">Link Here</a></li>
+                  <li class="fourth"><a href="#">Link Here</a></li>
+                </ul> <!-- end mega level 3 -->
+        
+              </li>
+      
+              <li class="second"><a href="#">Link Here</a></li>
+              <li class="third"><a href="#">Link Here</a></li>
+              <li class="fourth"><a href="#">Link Here</a></li>
+            </ul> <!-- end mega level 2 -->
+          </li> 
+  
+          <!-- end first main menu item -->
+  
+          <!-- second main menu item -->
+  
+          <li class="second unset-child"><a href="#">Another Link</a>
+  
+            <ul class="mega-level-2 advanced">
+              <div class="inner row">
+                <div class="col l4">
+                  <ul>
+                    <li class="first"><a href="#">Link Here</a></li>
+                    <li class="second"><a href="#">Link Here</a></li>
+                    <li class="third"><a href="#">Link Here</a></li>
+                    <li class="fourth"><a href="#">Link Here</a></li>
+                  </ul> 
+                </div><!-- column -->
+                <div class="col l4">
+                  <ul>
+                    <li class="first"><a href="#">Link Here</a></li>
+                    <li class="second"><a href="#">Link Here</a></li>
+                    <li class="third"><a href="#">Link Here</a></li>
+                    <li class="fourth"><a href="#">Link Here</a></li>
+                  </ul> 
+                </div><!-- column -->
+                <div class="col l4 center-align">
+                    <h2>Cool Headline</h2>
+                    <h4>Cool Longer SubHeadline</h4>
+                    <a href="/contact" class="button">Call To Action</a>
+                </div><!-- column -->
+              </div><!-- end inner row -->
+            </ul>
+    
+          </li>
+          <!-- end second main menu item -->
+  
+          <!-- third main menu item -->
+  
+          <li class="third"><a href="#">One More</a>
+            <ul class="mega-level-2">
+              <li class="first no-children"><a href="#">Link Here</a></li>
+      
+              <li class="second has-children">
+        
+                <a href="#">Very Long Title Link Should Go Here</a>
+        
+                <div class="plus-button"></div>
+                <ul class="mega-level-3">
+                  <li class="first"><a href="#">Link Here</a></li>
+                  <li class="second"><a href="#">Link Here</a></li>
+                  <li class="third"><a href="#">Link Here</a></li>
+                  <li class="fourth"><a href="#">Link Here</a></li>
+                </ul> <!-- end mega level 3 -->
+        
+              </li>
+      
+              <li class="third no-children"><a href="#">Link Here</a></li>
+      
+              <li class="fourth has-children"><a href="#">Link Here</a>
+      
+                <div class="plus-button"></div>
+                <ul class="mega-level-3">
+                  <li class="first"><a href="#">Link Here</a></li>
+                  <li class="second"><a href="#">Link Here</a></li>
+                  <li class="third"><a href="#">Link Here</a></li>
+                  <li class="fourth"><a href="#">Link Here</a></li>
+                </ul> <!-- end mega level 3 -->
+      
+              </li>
+            </ul> <!-- end mega level 2 -->
+          </li>
+  
+          <!-- end third main menu item -->
+  
+          <!-- fourth main menu item -->
+  
+          <li class="fourth"><a href="/contact">Contact Us</a></li>
+  
+          <!-- end fourth main menu item -->
+  
+  
+        </ul>
+
+
+    
+              <span class="nav-button valign-wrapper hide-on-large-only">
+              <div class="valign"><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i><span class="menu-text">menu</span></a>
+              <div class="tel"><a href="tel:+12084890123">208.489.0123</a></div>
+            </span></div>
+
+
+
+
+        </div>
+      </div> <!-- #mega_menu-container -->
+    </div>
+  </nav>
+
+
+</div> <!-- .top-wrapper .w-navigation-->
