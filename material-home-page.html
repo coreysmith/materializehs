@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ content.html_title }}</title>
+        <meta name="description" content="{{ content.meta_description }}">
+        {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
+        {{ standard_header_includes }}
+        <link rel="stylesheet" type="text/css" href="{{ get_public_template_url("custom/page/materializeHS/style.css") }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        
+        <script type="text/javascript" src="http://cdn.tributemedia.com/sites/default/files/js/07-tm-base.js"></script>
+        <script type="text/javascript" src="http://cdn.tributemedia.com/sites/default/files/js/07-bootstrap.js"> </script>
+    </head>
+    
+    
+    <body>
+      
+      <div id="top" class="materialize hs">
+        <div class="page">
+          <div class="page-inner">
+        
+            <div class="top-wrapper w-navigation">
+              <div class="top-wrapper wo-navigation">
+                  
+                <header id="header-wrapper" class="header-wrapper wrapper" role="banner">
+                  <div class="inner">
+                    <div id="header-container" class="container">
+                      <div class="inner row">
+                  
+                        <!-- branding -->
+                        <div id="site-info" class="site-info col s11 m3">
+                          <div class="inner">
+                               <?php if ($logo): ?><div class="logo"><a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a></div> <!-- .logo --><?php endif; ?>
+                          </div> <!-- .inner -->
+                        </div> <!-- .site-info -->
+                  
+                        <!-- header block -->
+                        <div id="header" class="header-region region col s12 m8 hide-on-med-and-down">
+                          <div class="inner">
+                            <?php print render($page['header']); ?>
+                          </div>
+                        </div> <!-- #header -->
+                  
+                      </div> <!-- .header-inner -->
+                    </div> <!-- #header-container -->
+                  </div> <!-- .header-wrapper-inner -->
+                </header> <!-- #header-wrapper -->
+          
+              </div> <!-- .top-wrapper .wo-navigation-->
+        
+              <?php if ($main_menu): ?>
+                <nav id="main-navigation-wrapper" class="main-navigation-wrapper wrapper">
+                  <div class="shrinking-icon"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo-icon"><img alt="<?php print t('Home'); ?>" src="/<?php $theme_path = drupal_get_path('theme', variable_get('theme_default', NULL)); echo $theme_path; ?>/logo-icon.png"></a></div>
+                  <div id="main-navigation" class="main-navigation container ">
+                    <div class="inner row">
+                     <?php print theme('links__system_main_menu', array(
+                       'links' => $main_menu,
+                       'attributes' => array(
+                         'id' => 'main-menu-links',
+                         'class' => array('links', 'clearfix'),
+                       ),
+                       'heading' => array(
+                         'text' => t('Main menu'),
+                         'level' => 'h2',
+                         'class' => array('element-invisible'),
+                       ),
+                     )); ?>
+                    </div> <!-- .inner -->
+                  </div> <!-- .main-navigation -->
+                </nav> <!-- .main-navigation-wrapper -->
+              <?php endif; ?> <!-- end main menu -->
+        
+        
+              <?php if (!empty($page['mega_menu'])): ?>
+                <nav id="mega-menu-wrapper" class="mega-menu-wrapper wrapper">
+                  <div class="shrinking-icon"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo-icon"><img alt="<?php print t('Home'); ?>" src="/<?php $theme_path = drupal_get_path('theme', variable_get('theme_default', NULL)); echo $theme_path; ?>/logo-icon.png"></a></div>
+                  <div class="inner">
+                  <div id="mega-menu-container" class="container">
+                    <div class="inner row">
+                          <?php print render($page['mega_menu']); ?>
+                    </div>
+                  </div> <!-- #mega_menu-container -->
+                </div>
+              </nav>
+              <?php endif; ?>
+        
+            </div> <!-- .top-wrapper .w-navigation-->
+
+
+
+            <div id="content-area-wrapper" class="content-area-wrapper">
+              <div class="inner">
+        
+              {% if widget_data.Preface.value %}
+                <section id="preface-wrapper" class="preface-wrapper wrapper">
+                  <div class="inner">
+                    <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
+                      <div id="preface" class="region clearfix">
+                        <div class="inner row">
+                        {% image_slider "Preface" label="Preface Region - Slideshow" %}
+                        </div><!-- .inner -->
+                      </div> <!-- #preface -->
+                    </div>  <!-- #preface-container -->
+                  </div>
+                </section>
+              {% else %}
+              <!-- preface region not used -->
+              {% endif %}
+      
+              <div id="content-wrapper" class="content-wrapper wrapper">
+                <div class="inner">
+                  <div id="content-container" class="container">
+                    <div class="inner row">
+                
+                      <main class="content-region col s12" role="main">
+                        <a id="main-content"></a>
+                          <div class="inner">
+                            <div class="layout-content">
+
+                        <h1 class="page-header title">{% text "H1 Title" label="H1.title" %}</h1>
+                        {% rich_text "content-body" label="Body Content" %}
+                    
+                                              </div><!-- .layout-content -->
+                        </div>
+                      </main> <!-- .content-region -->
+              
+              
+                      </div> <!-- inner row --> 
+                    </div> <!-- #content-container -->
+                  </div>
+                </div> <!-- #content-wrapper -->
+              </div>
+            </div><!-- #content-area-wrapper -->
+      
+            {% raw_html "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars", value="", export_to_template_context=True %}
+            {% if widget_data.Postscript.value %}
+              <section id="postscript-wrapper" class="preface-wrapper wrapper">
+                <div class="inner">
+                  <div id="postscript-container" class="container">
+                    <div id="postscript" class="region clearfix">
+                      <div class="inner row">
+                      {% raw_html "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars" %}
+                      </div><!-- .inner -->
+                    </div> <!-- #postscript -->
+                  </div>  <!-- #postscript-container -->
+                </div>
+              </section>
+            {% else %}
+            <!-- postscript region not used -->
+            {% endif %}
+
+              <footer class="footer-outer">
+                <div class="inner">
+            
+                <section id="footer-wrapper" class="preface-wrapper wrapper">
+                  <div class="inner">
+                    <div id="footer-container" class="container">
+                      <div id="footer" class="region clearfix" role="contentinfo">
+                        <div class="inner row">
+                          {{ standard_footer_includes }}
+
+                        </div><!-- .inner -->
+                      </div> <!-- #footer -->
+                    </div>  <!-- #footer-container -->
+                  </div>
+                </section>
+        
+              <div id="attribution-line" class="attribution-wrapper wrapper">
+                <div id="attribution-container" class="container">
+                  <div class="inner row">
+                    <div id="copyright-line" class="col s12 m6 center-on-mobile">
+                      <div class="inner">
+                        &copy;Date and Site name
+                      </div>
+                    </div>
+                    <div id="powered-by" class="col s12 m6 right-align center-on-mobile">
+                      <div class="inner">
+                        powered by Tribute Media - a <a href="http://www.tributemedia.com" target="_new" alt>web marketing agency</a>.
+                      </div>
+                    </div> <!-- #powered-by -->
+                  </div>
+                </div>
+              </div><!-- #attribution-line -->
+        
+            </div> <!-- .footer-outer-inner -->
+          </footer> <!-- .footer-outer -->
+    
+    
+<!-- mobile -->
+    
+      
+          </div> <!-- .page-inner -->
+    
+          <div id="back-to-top-wrapper">
+            <a href="#top" id="back-to-top" class="back-to-top waves-effect waves-light">Back To Top &nbsp; <i class="fa fa-arrow-circle-up"> </i></a>
+          </div>  
+        </div> <!-- .page -->
+      </div> <!-- .materialize -->
+
+
+
+      
+      
+        
+    </body>
+</html>

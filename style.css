@@ -1,0 +1,109 @@
+/*css imports*/
+@import url('{{ get_public_template_url("custom/page/materializeHS/materialize.css") }}');
+@import url('{{ get_public_template_url("custom/page/materializeHS/overrides.css") }}');
+@import url('{{ get_public_template_url("custom/page/materializeHS/shrinking-header.css") }}');
+@import url('{{ get_public_template_url("custom/page/materializeHS/tm-mega.css") }}');
+
+
+
+/*---------- General Colors ---------------*/
+
+body {background:#777;}
+.page,#header-wrapper {background:#fff;border-color:#444;}
+.content-wrapper a {}
+.content-wrapper a:hover {}
+a {color:#339FC6;}
+a:hover {color:#3686A0;}
+.dark-region a {color:#b4e7f8;}
+.dark-region a {color:#BED7E0;}
+
+.content-wrapper {color:#444;}
+.content-wrapper h1 {color:#111;}
+
+
+/*---------- Main Menu Colors -------------*/
+
+#main-navigation-wrapper {background-color:#1C75BC;}
+#main-navigation-wrapper a {color:#fff;}
+
+.region-primary-menu ul li {background-color:transparent;}
+.region-primary-menu ul li:hover {background-color: transparent;background-color: rgba(0, 0, 0, 0.6);}
+
+.region-primary-menu ul ul {background-color:#444;}
+
+/*------------ Menu Colors ---------------*/
+
+/*mega*/
+#mega-menu-wrapper {background-color:#1C75BC;}
+ul.mega-menu {background-color:transparent;}
+ul.mega-menu ul {background-color:#1C75BC;}
+ul.mega-menu a {color:#fff;}
+ul.mega-menu a:hover {color:#fff;}
+
+/* mega menu width */
+ul.mega-menu ul {width:325px;}
+
+ul.mega-menu ul.wide {
+  left:-100px;
+  padding-left:200px;
+  width:500px;
+/*  background-image:url('mega-images/first-menu-bg.png');*/
+}
+
+/*mobile*/
+ul.side-nav {background-color:#1C75BC;}
+
+/*mobile header*/
+ul.side-nav .side-nav-header ul.mobile-secondary li a {color:#fff;}
+
+/*mobile-footer*/
+ul.side-nav .side-nav-footer, ul.side-nav .side-nav-footer a, ul.side-nav .side-nav-footer a:hover {color:#fff;}
+
+/* buttons */
+
+
+button, .form-submit, a.btn, a.button, .button {background: #1C75BC;}
+button:hover, .form-submit:hover, a.btn:hover, a.button:hover, .button:hover {background: #4CA0E0;}
+
+.button.two {background-color:#aa0000;}
+.button.two:hover {background-color:#D60000;}
+
+.button a {color:#fff;} /*this is for the buttons added via CK Editor */
+ul.mega-menu ul.advanced .button {background-color:#aa0000;} /*this is for the advanced menu buttons*/
+ul.mega-menu ul.advanced .button:hover {background-color:#D60000;}
+
+/* ================================== */
+/* =     Readmore link              = */
+/* ================================== */
+
+.node-readmore.btn a {
+
+}
+.node-readmore.btn a:hover {
+
+}
+
+
+
+/* ================================== */
+/* =     Media Queries              = */
+/* ================================== */
+
+
+@media only screen and (max-width : 600px) {
+
+ }
+
+
+@media only screen and (min-width : 601px) {
+
+
+}
+@media only screen and (min-width : 993px) {
+
+}
+
+@media only screen and (max-width: 992px) {
+
+}
+
