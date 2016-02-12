@@ -1,16 +1,23 @@
 
 /*---------- General Colors ---------------*/
 
-body {background:#777;}
+/*these override the hubspot defaults. remove to use hubspot defaults */
+html {font-size:15px;}
+body {background:#777;color:#444;}
+.content-wrapper {color:#444;}
+a {color:#339FC6;}
+a:hover {color:#3686A0;}
+/*end hubspot default overrides*/
+
+
+
 .page,#header-wrapper {background:#fff;border-color:#444;}
 .content-wrapper a {}
 .content-wrapper a:hover {}
-a {color:#339FC6;}
-a:hover {color:#3686A0;}
+
 .dark-region a {color:#b4e7f8;}
 .dark-region a {color:#BED7E0;}
 
-.content-wrapper {color:#444;}
 .content-wrapper h1 {color:#111;}
 
 

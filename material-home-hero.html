@@ -7,10 +7,12 @@
         {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
         {{ standard_header_includes }}
         {% include 'custom/page/materializeHS/material-head-includes.html' %}
+        {% import "custom/page/materializeHS/material-settings.html" as settings %}
     </head>
     
     
-    <body class="{{ content_id }}">
+    {% choice "sidebar" label='Will this page use a sidebar?', value='sidebar', choices='sidebar, no-sidebar' export_to_template_context=True %}
+    <body class="nodeid-{{ content_id }} ">
       
       <div id="top" class="materialize hs">
         <div class="page">
@@ -44,18 +46,31 @@
                   <div id="content-container" class="container">
                     <div class="inner row">
                 
-                      <main class="content-region col s12" role="main">
+                      <main class="content-region col s12{% if widget_data.sidebar.value == 'sidebar' %} m9{% else %}{% endif %}" role="main">
                         <a id="main-content"></a>
                           <div class="inner">
                             <div class="layout-content">
-
-                        <h1 class="page-header title">{% text "H1 Title" label="H1.title" %}</h1>
+                        <h1 class="page-header title">{% text "H1 Title" label="H1.title", no-wrapper=True %}</h1>
+                        {% image "image_upload" label='Image Upload' %}
                         {% rich_text "content-body" label="Body Content" %}
+
                     
                                               </div><!-- .layout-content -->
                         </div>
                       </main> <!-- .content-region -->
-              
+                        
+                        {% if widget_data.sidebar.value == 'sidebar' %}
+                        <aside class="sidebar-second sidebar region layout-sidebar-second col s12 m3" role="complementary">
+                          <div class="inner">
+                            
+                            {% rich_text "sidebar_block_1" label="Sidebar Free Block" export_to_template_context=True %}
+                            {% if widget_data.sidebar_block_1.html %}
+                              {% rich_text "sidebar_block_1" label="Sidebar Free Block" %}
+                            {% endif %}
+                            
+                          </div> <!-- .inner -->
+                        </aside>  <!-- #sidebar-second -->
+                        {% else %}{% endif %}
               
                       </div> <!-- inner row --> 
                     </div> <!-- #content-container -->
@@ -64,14 +79,14 @@
               </div>
             </div><!-- #content-area-wrapper -->
       
-            {% raw_html "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars", value="", export_to_template_context=True %}
-            {% if widget_data.Postscript.value %}
+            {% rich_text "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars", value="", export_to_template_context=True %}
+            {% if widget_data.Postscript.html %}
               <section id="postscript-wrapper" class="preface-wrapper wrapper">
                 <div class="inner">
                   <div id="postscript-container" class="container">
                     <div id="postscript" class="region clearfix">
                       <div class="inner row">
-                      {% raw_html "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars" %}
+                      {% rich_text "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars" %}
                       </div><!-- .inner -->
                     </div> <!-- #postscript -->
                   </div>  <!-- #postscript-container -->

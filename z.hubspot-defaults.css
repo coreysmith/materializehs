@@ -1,0 +1,23 @@
+html {
+  font-size:{{ site_settings.primary_font_size }};
+}
+body {
+  background-color:{{ site_settings.background_color }};
+  color:{{ site_settings.primary_font_color }};
+}
+
+.content-wrapper {
+  color:{{ site_settings.secondary_font_color }};
+}
+
+/* use primary accent color as link color */
+
+a {
+  color:{{ site_settings.primary_accent_color }};
+}
+
+/* use secondary accent color as link:hover color*/
+
+a:hover {
+  color:{{ site_settings.secondary_accent_color }};
+}
