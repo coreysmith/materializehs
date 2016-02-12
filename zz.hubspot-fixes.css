@@ -1,0 +1,43 @@
+/* hubspot specific fixes to be rolled into overrides.css later */
+
+/*---------- Slideshow ---------------------*/
+#hs_cos_wrapper_hero_banner .hs_cos_flex-direction-nav {display:none;}
+
+#hs_cos_wrapper_hero_banner ul {padding:0;margin:-2px 0 0;}
+#hs_cos_wrapper_hero_banner ul li img {width:100%;}
+
+.hs_cos_wrapper_type_image_slider .superimpose .caption {
+  position:absolute;
+  top:50px;
+  width:100%;
+  text-align:center;
+}
+
+#hs_cos_wrapper_hero_banner .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4.3vw;}
+#hs_cos_wrapper_hero_banner .caption h3 {font-size:2.5vw;line-height:2.6vw;}
+#hs_cos_wrapper_hero_banner .caption a {font-size:1vw; line-height:1.1vw;}
+
+
+
+@media only screen and (max-width : 600px) {
+  #hs_cos_wrapper_hero_banner .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4vw;}
+  #hs_cos_wrapper_hero_banner .caption h3 {font-size:2.5vw;line-height:1.6vw;}
+  #hs_cos_wrapper_hero_banner .caption a {font-size:1vw; line-height:1.0vw;}
+  .hs_cos_wrapper_type_image_slider .superimpose .caption {top:0;}
+ }
+
+
+@media only screen and (min-width : 601px) {
+
+
+}
+@media only screen and (min-width : 993px) {
+
+}
+
+@media only screen and (min-width : 1280px) {
+
+}
+
+@media only screen and (max-width: 992px) {
+}

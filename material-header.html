@@ -9,7 +9,7 @@
             <!-- branding -->
             <div id="site-info" class="site-info col s11 m3">
               <div class="inner">
-                   {% logo "my_logo" label="Logo", overrideable=False %}
+                   <div class="logo"><a class="logo" href="{{ home_url }}" title="{{ home_title }}"><img src="{{ site_logo }}" alt="{{ home_title }}" /></a></div> <!-- .logo -->
               </div> <!-- .inner -->
             </div> <!-- .site-info -->
       
@@ -34,7 +34,7 @@
 
 
     <nav id="mega-menu-wrapper" class="mega-menu-wrapper wrapper">
-      <div class="shrinking-icon"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="logo-icon"><img alt="<?php print t('Home'); ?>" src="/<?php $theme_path = drupal_get_path('theme', variable_get('theme_default', NULL)); echo $theme_path; ?>/logo-icon.png"></a></div>
+      <div class="shrinking-icon"><a href="{{ home_url }}" title="{{ home_title }}" rel="home" class="logo-icon"><img alt="{{ home_title }}" src="{{ icon_url }}"></a></div>
       <div class="inner">
       <div id="mega-menu-container" class="container">
         <div class="inner row">
@@ -43,7 +43,7 @@
   
           <!-- first main menu item -->
   
-          <li class="first"><a href="/">Home</a>
+          <li class="first"><a href="/material-design-hubspot">Home</a>
     
             <ul class="mega-level-2 wide">
               <li class="first has-children"><a href="#">Link Here</a>
@@ -68,7 +68,7 @@
   
           <!-- second main menu item -->
   
-          <li class="second unset-child"><a href="#">Another Link</a>
+          <li class="second unset-child"><a href="/typography">Typography</a>
   
             <ul class="mega-level-2 advanced">
               <div class="inner row">

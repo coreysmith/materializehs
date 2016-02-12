@@ -6,17 +6,11 @@
         <meta name="description" content="{{ content.meta_description }}">
         {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
         {{ standard_header_includes }}
-        <link rel="stylesheet" type="text/css" href="{{ get_public_template_url("custom/page/materializeHS/style.css") }}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-        
-        <script type="text/javascript" src="http://cdn.tributemedia.com/sites/default/files/js/07-tm-base.js"></script>
-        <script type="text/javascript" src="http://cdn.tributemedia.com/sites/default/files/js/07-bootstrap.js"> </script>
+        {% include 'custom/page/materializeHS/material-head-includes.html' %}
     </head>
     
     
-    <body>
+    <body class="{{ content_id }}">
       
       <div id="top" class="materialize hs">
         <div class="page">
@@ -29,21 +23,21 @@
             <div id="content-area-wrapper" class="content-area-wrapper">
               <div class="inner">
         
-              {% if widget_data.Preface.value %}
+
                 <section id="preface-wrapper" class="preface-wrapper wrapper">
                   <div class="inner">
                     <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
                       <div id="preface" class="region clearfix">
                         <div class="inner row">
-                        {% image_slider "Preface" label="Preface Region - Slideshow" %}
+                        {% image_slider "hero_banner" label="Hero Slider (only one slide makes it a Hero Banner)" transition='fade', caption_position='superimpose', auto_advance=True, show_pagination=False, num_seconds="5" %}
+                        
+                        
                         </div><!-- .inner -->
                       </div> <!-- #preface -->
                     </div>  <!-- #preface-container -->
                   </div>
                 </section>
-              {% else %}
-              <!-- preface region not used -->
-              {% endif %}
+
       
               <div id="content-wrapper" class="content-wrapper wrapper">
                 <div class="inner">
