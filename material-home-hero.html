@@ -10,9 +10,18 @@
         {% import "custom/page/materializeHS/material-settings.html" as settings %}
     </head>
     
+    {% text "read_me" label="<p style='color:#0768B2;'>Please select your page configuration options and then save and refresh this page. Your options will then appear below.</p>
+<div style='border-bottom:1px solid #aa0000;color:#aa0000;margin-bottom:10px;'></div>", value="This text field does nothing." export_to_template_context=True %}
+
+    {% choice "navigator" label="Hide Navigation? <span style='font-size:75%;'>(No navigation usually used for landing pages)</span>", value="show-navigation", choices="show-navigation, no-navigation" export_to_template_context=True %}
     
-    {% choice "sidebar" label='Will this page use a sidebar?', value='sidebar', choices='sidebar, no-sidebar' export_to_template_context=True %}
-    <body class="nodeid-{{ content_id }} ">
+    {% choice "banner" label="Will this page use a Hero Banner, Video or None?", value="none", choices="banner, video, none" export_to_template_context=True %}
+    
+    {% choice "sidebar_form" label="Will this page use a sidebar or a form?", value="sidebar-3-columns", choices="sidebar-3-columns, sidebar-4-columns, no-sidebar, form-below-content, form-right-of-content" export_to_template_context=True %}
+    
+    {% choice "long_page" label="Long page sections <span style='font-size:75%;'>(Add additional long page sections below postscript region)</span>", value="0-long-page-sections", choices="0-long-page-sections, 1-long-page-section, 2-long-page-sections, 3-long-page-sections, 4-long-page-sections" export_to_template_context=True %}
+
+    <body class="nodeid-{{ content_id }} {% if widget_data.navigator.value == 'no-navigation' %}no-navigation{% else %}{% endif %}">
       
       <div id="top" class="materialize hs">
         <div class="page">
@@ -25,42 +34,85 @@
             <div id="content-area-wrapper" class="content-area-wrapper">
               <div class="inner">
         
+            {% text "read_me2" label="<div style='padding-top:10px;border-top:1px solid #aa0000;color:#aa0000;margin-top:10px;'></div><p style='color:#0768B2;'>These options below will change based on the selections above. You might need to save this page and either update or refresh for the new options to appear.</p>
+<div style='border-bottom:1px solid #aa0000;color:#aa0000;margin-bottom:10px;'></div>", value="This text field does nothing." export_to_template_context=True %}
 
+
+
+          {% if widget_data.banner.value == 'banner' %}
                 <section id="preface-wrapper" class="preface-wrapper wrapper">
                   <div class="inner">
                     <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
                       <div id="preface" class="region clearfix">
                         <div class="inner row">
-                        {% image_slider "hero_banner" label="Hero Slider (only one slide makes it a Hero Banner)" transition='fade', caption_position='superimpose', auto_advance=True, show_pagination=False, num_seconds="5" %}
-                        
-                        
+                        {% image_slider "hero_banner" label="Hero Slider <span style='font-size:70%'>(only one slide makes it a Hero Banner)</span>" transition='fade', caption_position='superimpose', auto_advance=True, show_pagination=False, num_seconds="5" %}
                         </div><!-- .inner -->
                       </div> <!-- #preface -->
                     </div>  <!-- #preface-container -->
                   </div>
                 </section>
+            {% elif widget_data.banner.value == 'video' %}
+            <section id="preface-wrapper" class="preface-wrapper wrapper">
+              <div class="inner">
+                <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
+                  <div id="preface" class="region clearfix">
+                    <div class="inner row">
+                      <div class="fullscreen-bg">    
+                        <video muted="muted" preload="yes" autoplay="autoplay" loop="loop" height="" class="fullscreen-bg-video">
 
+                        {% text "video_url" label="Insert URL for background video" %}
+
+                        </video>
+                        
+                        <div class="caption">
+                          {% rich_text "video_caption" label="Caption for Video"}
+                        </div>
+                      </div>
+                    
+                    
+                    </div><!-- .inner -->
+                  </div> <!-- #preface -->
+                </div>  <!-- #preface-container -->
+              </div>
+            </section>
+            {% else %}
+            {% endif %}
       
-              <div id="content-wrapper" class="content-wrapper wrapper">
+              <div id="content-wrapper" class="content-wrapper wrapper{% if widget_data.sidebar_form.value == 'form-right-of-content' %} side-by-side{% else %}{% endif %}">
                 <div class="inner">
                   <div id="content-container" class="container">
                     <div class="inner row">
-                
-                      <main class="content-region col s12{% if widget_data.sidebar.value == 'sidebar' %} m9{% else %}{% endif %}" role="main">
+                <h1 class="page-header title">{% text "H1 Title" value="Page Title", label="H1.title", no-wrapper=True %}</h1>
+                      <main class="content-region col{% if widget_data.sidebar_form.value == 'sidebar-3-columns' %} s12 m9{% elif widget_data.sidebar_form.value == 'sidebar-4-columns' %} s12 m8{% elif widget_data-sidebar.value == 'form-below-content' %} s12{% elif widget_data.sidebar_form.value == 'form-right-of-content' %} s12{% else %}{% endif %}" role="main">
                         <a id="main-content"></a>
                           <div class="inner">
                             <div class="layout-content">
-                        <h1 class="page-header title">{% text "H1 Title" label="H1.title", no-wrapper=True %}</h1>
-                        {% image "image_upload" label='Image Upload' %}
-                        {% rich_text "content-body" label="Body Content" %}
+                        
+                        <div class="region region-content">
+                            <div class="block">
+                                <div class="content">
+                                     {% image "image_upload" label='Image Upload' export_to_template_context=True %}
+                                {% if widget_data.image_upload.src %}
+                                <div class="field-name-field-image">
+                                    {% image "image_upload" label='Image Upload' %}
+                                </div>
+                                {% endif %}
+                                {% rich_text "content-body" label="Body Content", html="<p>The Big Oxmox advised her not to do so, because there were thousands of bad , wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
 
+<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+
+<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>" %}
+                                 </div>
+                            </div>                            
+                        </div>
+                      
                     
-                                              </div><!-- .layout-content -->
+                          </div><!-- .layout-content -->
                         </div>
                       </main> <!-- .content-region -->
                         
-                        {% if widget_data.sidebar.value == 'sidebar' %}
-                        <aside class="sidebar-second sidebar region layout-sidebar-second col s12 m3" role="complementary">
+                        {% if widget_data.sidebar_form.value == 'sidebar-3-columns' %}
+                        <aside class="sidebar-second sidebar region layout-sidebar-second sidebar-3-columns col s12 m3" role="complementary">
                           <div class="inner">
                             
                             {% rich_text "sidebar_block_1" label="Sidebar Free Block" export_to_template_context=True %}
@@ -70,7 +122,36 @@
                             
                           </div> <!-- .inner -->
                         </aside>  <!-- #sidebar-second -->
-                        {% else %}{% endif %}
+                        {% elif widget_data.sidebar_form.value == 'sidebar-4-columns' %}
+                        <aside class="sidebar-second sidebar region layout-sidebar-second sidebar-4-columns col s12 m4" role="complementary">
+                          <div class="inner">
+                            
+                            {% rich_text "sidebar_block_1" label="Sidebar Free Block" export_to_template_context=True %}
+                            {% if widget_data.sidebar_block_1.html %}
+                              {% rich_text "sidebar_block_1" label="Sidebar Free Block" %}
+                            {% endif %}
+                            
+                          </div> <!-- .inner -->
+                        </aside>  <!-- #sidebar-second -->
+                        {% elif widget_data.sidebar_form.value ==  'form-below-content' %}
+                        <aside class="sidebar-second sidebar region layout-sidebar-second form form-below-content col s12" role="complementary">
+                          <div class="inner">
+                            
+                            {% form 'landing_page_form' label="Form", custom_form_html=None, no_title=False, title="" %}
+                            
+                          </div> <!-- .inner -->
+                        </aside>  <!-- #sidebar-second -->
+                        {% elif widget_data.sidebar_form.value ==  'form-right-of-content' %}
+                        <aside class="sidebar-second sidebar region layout-sidebar-second form form-right-of-content col s12" role="complementary">
+                          <div class="inner">
+                            
+                            {% form 'landing_page_form' label="Form", custom_form_html=None, no_title=False, title="" %}
+                            
+                          </div> <!-- .inner -->
+                        </aside>  <!-- #sidebar-second -->
+                        {% else %}
+                        
+                        {% endif %}
               
                       </div> <!-- inner row --> 
                     </div> <!-- #content-container -->
@@ -86,7 +167,7 @@
                   <div id="postscript-container" class="container">
                     <div id="postscript" class="region clearfix">
                       <div class="inner row">
-                      {% rich_text "Postscript" label="Postscript Region - Shows below the main content &amp; sidebars" %}
+                      {% rich_text "Postscript" label="Postscript Region <span style='font-size:75%'>(Shows below the main content &amp; sidebars)</span>" %}
                       </div><!-- .inner -->
                     </div> <!-- #postscript -->
                   </div>  <!-- #postscript-container -->
@@ -95,6 +176,63 @@
             {% else %}
             <!-- postscript region not used -->
             {% endif %}
+
+            {% if widget_data.long_page.value == '1-long-page-section' %}
+              <section id="1st-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #1st-long-page-region -->
+            {% elif widget_data.long_page.value == '2-long-page-sections' %}
+              <section id="1st-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #1st-long-page-region -->
+              <section id="2nd-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page2" label="Add 2nd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #2nd-long-page-region -->
+            {% elif widget_data.long_page.value == '3-long-page-sections' %}
+              <section id="1st-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #1st-long-page-region -->
+              <section id="2nd-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page2" label="Add 2nd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #2nd-long-page-region -->
+              <section id="3rd-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page3" label="Add 3rd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #3rd-long-page-region -->
+            {% elif widget_data.long_page.value == '4-long-page-sections' %}
+              <section id="1st-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #1st-long-page-region -->
+              <section id="2nd-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page2" label="Add 2nd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #2nd-long-page-region -->
+              <section id="3rd-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page3" label="Add 3rd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #3rd-long-page-region -->
+              <section id="4th-long-page-region" class="long-page-region wrapper">
+                <div class="inner">
+              {% raw_html "long_page4" label="Add 4th Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+                </div>
+              </section><!-- end #4th-long-page-region -->
+              {% else %}
+              {% endif %}
 
             {% include 'custom/page/materializeHS/material-footer.html' %}
             {{ standard_footer_includes }}

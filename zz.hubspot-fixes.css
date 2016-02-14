@@ -15,14 +15,18 @@
 
 #hs_cos_wrapper_hero_banner .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4.3vw;}
 #hs_cos_wrapper_hero_banner .caption h3 {font-size:2.5vw;line-height:2.6vw;}
-#hs_cos_wrapper_hero_banner .caption a {font-size:1vw; line-height:1.1vw;}
+#hs_cos_wrapper_hero_banner .caption a {font-size:1.9vw;line-height:36px;padding:1vw 2vw;}
+
+.hs #content-container {padding-top:20px;}
+.hs h1.title {padding:0 10px;}
 
 
 
+.content-region .field-name-field-image {margin-top:10px;}
 @media only screen and (max-width : 600px) {
   #hs_cos_wrapper_hero_banner .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4vw;}
   #hs_cos_wrapper_hero_banner .caption h3 {font-size:2.5vw;line-height:1.6vw;}
-  #hs_cos_wrapper_hero_banner .caption a {font-size:1vw; line-height:1.0vw;}
+  #hs_cos_wrapper_hero_banner .caption a {font-size:1.4vw;line-height:24px;padding:.9vw 1.5vw;}
   .hs_cos_wrapper_type_image_slider .superimpose .caption {top:0;}
  }
 
@@ -32,7 +36,8 @@
 
 }
 @media only screen and (min-width : 993px) {
-
+  .hs .sidebar-second.form.form-right-of-content {background-color:#fdfdfd;padding:0 20px 20px;margin-top:20px;float:left;width:50%;}
+  .hs .side-by-side .content-region .field-name-field-image {margin-top:20px;}
 }
 
 @media only screen and (min-width : 1280px) {
