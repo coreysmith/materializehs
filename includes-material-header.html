@@ -1,0 +1,36 @@
+<div class="top-wrapper w-navigation">
+  <div class="top-wrapper wo-navigation">
+      
+    <header id="header-wrapper" class="header-wrapper wrapper" role="banner">
+      <div class="inner">
+        <div id="header-container" class="container">
+          <div class="inner row">
+      
+            <!-- branding -->
+            <div id="site-info" class="site-info col s11 m3">
+              <div class="inner">
+                   <div class="logo"><a class="logo" href="{{ settings.home_url }}" title="{{ settings.home_title }}"><img src="{{ settings.site_logo }}" alt="{{ settings.home_title }}" /></a></div> <!-- .logo -->
+              </div> <!-- .inner -->
+            </div> <!-- .site-info -->
+      
+            <!-- header block -->
+            <div id="header" class="header-region region col s12 m8 hide-on-med-and-down">
+              <div class="inner">
+
+                {% include 'custom/page/materializeHS/block-material-header.html' %}
+
+
+              </div>
+            </div> <!-- #header -->
+      
+          </div> <!-- .header-inner -->
+        </div> <!-- #header-container -->
+      </div> <!-- .header-wrapper-inner -->
+    </header> <!-- #header-wrapper -->
+
+  </div> <!-- .top-wrapper .wo-navigation-->
+
+
+         {% include 'custom/page/materializeHS/block-mega-menu.html' %}
+
+</div> <!-- .top-wrapper .w-navigation-->

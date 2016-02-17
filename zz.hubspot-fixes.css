@@ -1,32 +1,37 @@
 /* hubspot specific fixes to be rolled into overrides.css later */
 
 /*---------- Slideshow ---------------------*/
-#hs_cos_wrapper_hero_banner .hs_cos_flex-direction-nav {display:none;}
+.hs_cos_flex-slide-main {display:none;}
+.hero-wrapper .hs_cos_flex-direction-nav {display:none;}
 
-#hs_cos_wrapper_hero_banner ul {padding:0;margin:-2px 0 0;}
-#hs_cos_wrapper_hero_banner ul li img {width:100%;}
+.hero-wrapper ul {padding:0;margin:-2px 0 0;}
+.hero-wrapper ul li img {width:100%;}
 
-.hs_cos_wrapper_type_image_slider .superimpose .caption {
+.hero-wrapper .superimpose .caption,
+.video-wrapper .caption {
   position:absolute;
   top:50px;
   width:100%;
   text-align:center;
 }
 
-#hs_cos_wrapper_hero_banner .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4.3vw;}
-#hs_cos_wrapper_hero_banner .caption h3 {font-size:2.5vw;line-height:2.6vw;}
-#hs_cos_wrapper_hero_banner .caption a {font-size:1.9vw;line-height:36px;padding:1vw 2vw;}
+.preface-wrapper .caption h1, .preface-wrapper .caption h2 {font-size:5vw; line-height:4.3vw;text-shadow: 0px 0px 2px #111;}
+.preface-wrapper .caption h3 {font-size:2.5vw;line-height:2.6vw;text-shadow: 0px 0px 2px #111;}
+.preface-wrapper .caption a {font-size:1.9vw;line-height:36px;padding:1vw 2vw;}
 
 .hs #content-container {padding-top:20px;}
 .hs h1.title {padding:0 10px;}
 
 
+.video-wrapper .fullscreen-bg {position:relative;}
+.video-wrapper {max-height:500px;height:60vh;overflow:hidden;margin-top:-2px;}
 
 .content-region .field-name-field-image {margin-top:10px;}
+.hs .node-article footer {height:50px;}
 @media only screen and (max-width : 600px) {
-  #hs_cos_wrapper_hero_banner .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4vw;}
-  #hs_cos_wrapper_hero_banner .caption h3 {font-size:2.5vw;line-height:1.6vw;}
-  #hs_cos_wrapper_hero_banner .caption a {font-size:1.4vw;line-height:24px;padding:.9vw 1.5vw;}
+  .preface-wrapper .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4vw;}
+  .preface-wrapper .caption h3 {font-size:2.5vw;line-height:1.6vw;}
+  .preface-wrapper .caption a {font-size:1.4vw;line-height:24px;padding:.9vw 1.5vw;}
   .hs_cos_wrapper_type_image_slider .superimpose .caption {top:0;}
  }
 

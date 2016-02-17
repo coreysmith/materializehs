@@ -6,8 +6,8 @@
         <meta name="description" content="{{ content.meta_description }}">
         {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
         {{ standard_header_includes }}
-        {% include 'custom/page/materializeHS/material-head-includes.html' %}
-        {% import "custom/page/materializeHS/material-settings.html" as settings %}
+        {% include 'custom/page/materializeHS/includes-material-head.html' %}
+        {% import "custom/page/materializeHS/settings-material-theme.html" as settings %}
     </head>
     
     {% text "read_me" label="<p style='color:#0768B2;'>Please select your page configuration options and then save and refresh this page. Your options will then appear below.</p>
@@ -28,7 +28,7 @@
           <div class="page-inner">
         
 
-            {% include 'custom/page/materializeHS/material-header.html' %}
+            {% include 'custom/page/materializeHS/includes-material-header.html' %}
 
 
             <div id="content-area-wrapper" class="content-area-wrapper">
@@ -40,19 +40,19 @@
 
 
           {% if widget_data.banner.value == 'banner' %}
-                <section id="preface-wrapper" class="preface-wrapper wrapper">
+                <section id="preface-wrapper" class="preface-wrapper hero-wrapper wrapper">
                   <div class="inner">
                     <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
                       <div id="preface" class="region clearfix">
                         <div class="inner row">
-                        {% image_slider "hero_banner" label="Hero Slider <span style='font-size:70%'>(only one slide makes it a Hero Banner)</span>" transition='fade', caption_position='superimpose', auto_advance=True, show_pagination=False, num_seconds="5" %}
+                        {% image_slider "hero_banner" label="Hero Slider Test <span style='font-size:70%'>(only one slide makes it a Hero Banner)</span>", transition='fade', caption_position='superimpose', auto_advance=True, show_pagination=False, num_seconds="5", no_wrapper=True %}
                         </div><!-- .inner -->
                       </div> <!-- #preface -->
                     </div>  <!-- #preface-container -->
                   </div>
                 </section>
             {% elif widget_data.banner.value == 'video' %}
-            <section id="preface-wrapper" class="preface-wrapper wrapper">
+            <section id="preface-wrapper" class="preface-wrapper video-wrapper wrapper">
               <div class="inner">
                 <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
                   <div id="preface" class="region clearfix">
@@ -60,12 +60,14 @@
                       <div class="fullscreen-bg">    
                         <video muted="muted" preload="yes" autoplay="autoplay" loop="loop" height="" class="fullscreen-bg-video">
 
-                        {% text "video_url" label="Insert URL for background video" %}
+
+                            {% text "video_url" label="Insert URL for background video" export_to_template_context=True %}
+                            <source src="{% text "video_url" label="Insert URL for background video" no_wrapper=True %}">
 
                         </video>
                         
                         <div class="caption">
-                          {% rich_text "video_caption" label="Caption for Video"}
+                          {% rich_text "video_caption" label="Caption for Video" no_wrapper=True %}
                         </div>
                       </div>
                     
@@ -94,14 +96,14 @@
                                      {% image "image_upload" label='Image Upload' export_to_template_context=True %}
                                 {% if widget_data.image_upload.src %}
                                 <div class="field-name-field-image">
-                                    {% image "image_upload" label='Image Upload' %}
+                                    {% image "image_upload" label='Image Upload', no-wrapper=True %}
                                 </div>
                                 {% endif %}
                                 {% rich_text "content-body" label="Body Content", html="<p>The Big Oxmox advised her not to do so, because there were thousands of bad , wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
 
 <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
 
-<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>" %}
+<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>", no-wrapper=True %}
                                  </div>
                             </div>                            
                         </div>
@@ -152,7 +154,11 @@
                         {% else %}
                         
                         {% endif %}
-              
+                        
+                        <div class="social-links col s12">
+                        {% social_sharing "social_sharing" use_page_url=True %}
+                        </div>
+                          
                       </div> <!-- inner row --> 
                     </div> <!-- #content-container -->
                   </div>
@@ -234,10 +240,10 @@
               {% else %}
               {% endif %}
 
-            {% include 'custom/page/materializeHS/material-footer.html' %}
+            {% include 'custom/page/materializeHS/includes-material-footer.html' %}
             {{ standard_footer_includes }}
     
-            {% include 'custom/page/materializeHS/material-mobile.html' %}
+            {% include 'custom/page/materializeHS/block-material-mobile.html' %}
     
       
           </div> <!-- .page-inner -->

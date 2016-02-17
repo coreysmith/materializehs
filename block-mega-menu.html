@@ -1,40 +1,12 @@
-<div class="top-wrapper w-navigation">
-  <div class="top-wrapper wo-navigation">
-      
-    <header id="header-wrapper" class="header-wrapper wrapper" role="banner">
-      <div class="inner">
-        <div id="header-container" class="container">
-          <div class="inner row">
-      
-            <!-- branding -->
-            <div id="site-info" class="site-info col s11 m3">
-              <div class="inner">
-                   <div class="logo"><a class="logo" href="{{ settings.home_url }}" title="{{ settings.home_title }}"><img src="{{ settings.site_logo }}" alt="{{ settings.home_title }}" /></a></div> <!-- .logo -->
-              </div> <!-- .inner -->
-            </div> <!-- .site-info -->
-      
-            <!-- header block -->
-            <div id="header" class="header-region region col s12 m8 hide-on-med-and-down">
-              <div class="inner">
+{# 
+ #
+ #  This block will appear below the logo and header
+ #  It will show the mega menu and will not be visible on mobile devices.      
+ #  
+ #}
+ 
 
-                {% include 'custom/page/materializeHS/material-global-header-block.html' %}
-
-
-
-              </div>
-            </div> <!-- #header -->
-      
-          </div> <!-- .header-inner -->
-        </div> <!-- #header-container -->
-      </div> <!-- .header-wrapper-inner -->
-    </header> <!-- #header-wrapper -->
-
-  </div> <!-- .top-wrapper .wo-navigation-->
-
-
-
-
-    <nav id="mega-menu-wrapper" class="mega-menu-wrapper wrapper">
+<nav id="mega-menu-wrapper" class="mega-menu-wrapper wrapper">
       <div class="shrinking-icon"><a href="{{ settings.home_url }}" title="{{ settings.home_title }}" rel="home" class="logo-icon"><img alt="{{ settings.home_title }}" src="{{ settings.icon_url }}"></a></div>
       <div class="inner">
       <div id="mega-menu-container" class="container">
@@ -161,6 +133,3 @@
       </div> <!-- #mega_menu-container -->
     </div>
   </nav>
-
-
-</div> <!-- .top-wrapper .w-navigation-->
