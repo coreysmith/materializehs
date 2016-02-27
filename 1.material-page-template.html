@@ -17,7 +17,7 @@
     
     {% choice "banner" label="Will this page use a Hero Banner, Video or None?", value="none", choices="banner, video, none" export_to_template_context=True %}
     
-    {% choice "sidebar_form" label="Will this page use a sidebar or a form?", value="sidebar-3-columns", choices="sidebar-3-columns, sidebar-4-columns, no-sidebar, form-below-content, form-right-of-content" export_to_template_context=True %}
+    {% choice "sidebar_form" label="Will this page use a sidebar or a form?", value="{{ settings.default_sidebar }}", choices="sidebar-3-columns, sidebar-4-columns, no-sidebar, form-below-content, form-right-of-content" export_to_template_context=True %}
     
     {% choice "long_page" label="Long page sections <span style='font-size:75%;'>(Add additional long page sections below postscript region)</span>", value="0-long-page-sections", choices="0-long-page-sections, 1-long-page-section, 2-long-page-sections, 3-long-page-sections, 4-long-page-sections" export_to_template_context=True %}
 
@@ -39,13 +39,13 @@
 
 
 
-          {% if widget_data.banner.value == 'banner' %}
+           {% if widget_data.banner.value == 'banner' %}
                 <section id="preface-wrapper" class="preface-wrapper hero-wrapper wrapper">
                   <div class="inner">
                     <div id="preface-container" class=""> <!-- add container class here to make preface not full-width-->
                       <div id="preface" class="region clearfix">
                         <div class="inner row">
-                        {% image_slider "hero_banner" label="Hero Slider Test <span style='font-size:70%'>(only one slide makes it a Hero Banner)</span>", transition='fade', caption_position='superimpose', auto_advance=True, show_pagination=False, num_seconds="5", no_wrapper=True %}
+                        {% image_slider "hero_banner" label="Hero Slider Test <span style='font-size:70%'>(only one slide makes it a Hero Banner)</span>", transition="fade", caption_position="superimpose", auto_advance=True, show_pagination=False, num_seconds=5, no_wrapper=True %}
                         </div><!-- .inner -->
                       </div> <!-- #preface -->
                     </div>  <!-- #preface-container -->
@@ -77,14 +77,13 @@
                 </div>  <!-- #preface-container -->
               </div>
             </section>
-            {% else %}
             {% endif %}
       
               <div id="content-wrapper" class="content-wrapper wrapper{% if widget_data.sidebar_form.value == 'form-right-of-content' %} side-by-side{% else %}{% endif %}">
                 <div class="inner">
                   <div id="content-container" class="container">
                     <div class="inner row">
-                <h1 class="page-header title">{% text "H1 Title" value="Page Title", label="H1.title", no-wrapper=True %}</h1>
+                <h1 class="page-header title">{% text "H1 Title" value="Page Title", label="H1.title", no_wrapper=True %}</h1>
                       <main class="content-region col{% if widget_data.sidebar_form.value == 'sidebar-3-columns' %} s12 m9{% elif widget_data.sidebar_form.value == 'sidebar-4-columns' %} s12 m8{% elif widget_data-sidebar.value == 'form-below-content' %} s12{% elif widget_data.sidebar_form.value == 'form-right-of-content' %} s12{% else %}{% endif %}" role="main">
                         <a id="main-content"></a>
                           <div class="inner">
@@ -96,14 +95,14 @@
                                      {% image "image_upload" label='Image Upload' export_to_template_context=True %}
                                 {% if widget_data.image_upload.src %}
                                 <div class="field-name-field-image">
-                                    {% image "image_upload" label='Image Upload', no-wrapper=True %}
+                                    {% image "image_upload" label='Image Upload', no_wrapper=True %}
                                 </div>
                                 {% endif %}
                                 {% rich_text "content-body" label="Body Content", html="<p>The Big Oxmox advised her not to do so, because there were thousands of bad , wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
 
 <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
 
-<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>", no-wrapper=True %}
+<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>", no_wrapper=True %}
                                  </div>
                             </div>                            
                         </div>
@@ -156,7 +155,17 @@
                         {% endif %}
                         
                         <div class="social-links col s12">
-                        {% social_sharing "social_sharing" use_page_url=True %}
+                          <ul class="links inline">
+                            <li class="please-share">Please share this page:</li>
+                          {% widget_block social_sharing "social_share" label='Social Sharing', use_page_url=True, overrideable=True  %}
+                                  <li>{% widget_attribute "pinterest" is_json=True %}{"custom_link_format": "", "pinterest_media": "", "network": "pinterest", "img_src": "{{ settings.share_icon_pn }}"}{% end_widget_attribute %}</li>
+                                  <li>{% widget_attribute "twitter" is_json=True %}{"custom_link_format": "", "network": "twitter", "img_src": "{{ settings.share_icon_tw }}"}{% end_widget_attribute %}</li>
+                                  <li>{% widget_attribute "google_plus" is_json=True %}{"custom_link_format": "", "network": "google_plus", "img_src": "{{ settings.share_icon_gg }}"}{% end_widget_attribute %}</li>
+                                  <li>{% widget_attribute "linkedin" is_json=True %}{"custom_link_format": "", "network": "linkedin", "img_src": "{{ settings.share_icon_in }}"}{% end_widget_attribute %}</li>
+                                  <li>{% widget_attribute "facebook" is_json=True %}{"custom_link_format": "", "network": "facebook", "img_src": "{{ settings.share_icon_fb }}"}{% end_widget_attribute %}</li>
+                                  <li>{% widget_attribute "email" is_json=True %}{"custom_link_format": "", "network": "email", "img_src": "{{ settings.share_icon_ml }}"}{% end_widget_attribute %}</li>
+                          {% end_widget_block %}
+                          </ul>
                         </div>
                           
                       </div> <!-- inner row --> 

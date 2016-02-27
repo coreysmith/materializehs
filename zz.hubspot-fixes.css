@@ -10,7 +10,7 @@
 .hero-wrapper .superimpose .caption,
 .video-wrapper .caption {
   position:absolute;
-  top:50px;
+  top:0;
   width:100%;
   text-align:center;
 }
@@ -28,6 +28,107 @@
 
 .content-region .field-name-field-image {margin-top:10px;}
 .hs .node-article footer {height:50px;}
+
+/* forms */
+.blog .hs [type="checkbox"]:not(:checked), .blog .hs [type="checkbox"]:checked {
+  left:0;
+  position:relative;
+  visibility:visible;
+  margin-right:6px;
+}
+/* recaptcha */
+#recaptcha_table td {border:transparent;margin:0 !important;}
+#recaptcha_table #recaptcha_response_field {border:transparent !important;margin:0;}
+.recaptcha_only_if_privacy {
+    float: none !important;
+    height: 32px !important;
+    margin: 13px !important;
+    padding: 10px !important;
+    position: absolute !important;
+    text-align: right !important;
+    width: 100px !important;
+    top:40px !important;
+    left:1900px !important;
+}
+/* social shares */
+.post-footer {margin-bottom:20px;min-height:25px;}
+.social-links ul.links {padding-left:0;}
+.please-share {list-style-type:none;display:inline;position:relative;top:-5px;margin-right:10px;}
+
+/* author section on blog */
+
+.about-author-sec {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-clip: padding-box;
+  clear: left;
+  padding: 10px;
+  margin-bottom:20px;
+}
+.about-author-sec > div:first-child {
+  background-clip: padding-box;
+  border-radius: 100px;
+  clear: left;
+  float: left;
+  height: 100px;
+  margin: 10px;
+  overflow: hidden;
+  width: 100px;
+}
+.about-author-sec h4 {
+  font-size:110%;
+}
+
+h3.comment-title {margin-bottom:-20px;margin-top:25px;font-size:1.25rem;}
+.post-footer .comment.depth-0 {border:1px solid #ddd;padding:10px;border-radius: 2px;background-clip: padding-box;}
+.post-footer .comment.depth-1 {border-top:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;border-left:3px solid #aaa;padding:10px;border-radius: 2px;background-clip: padding-box;margin:5px 0 0 60px;}
+.post-footer .comment h4 {font-size:1.25rem;}
+.post-footer .comment h4:before {
+  content: "";
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-size: 1em;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  margin-left:0;
+}
+.post-footer .comment .comment-date {font-size: .8rem;}
+.post-footer .comment .comment-body {font-size:1rem;}
+.post-footer .comment .comment-body > p:first-child {margin-top:0;}
+.post-footer .comment button.comment-reply-to {background-image:none;padding:0 15px;background-color:#ccc;font-size:.75rem;width:100%;}
+.post-footer .comment button.comment-reply-to:hover {background-color:#777;color:#fff;}
+
+.post-footer .comment button.comment-reply-to:before {
+  content: "";
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-size: 1.1em;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  margin-left:0;
+  margin-right:5px;
+}
+.post-footer .new-comments {margin-top:20px;}
 @media only screen and (max-width : 600px) {
   .preface-wrapper .caption h1, #hs_cos_wrapper_hero_banner .caption h2 {font-size:5vw; line-height:4vw;}
   .preface-wrapper .caption h3 {font-size:2.5vw;line-height:1.6vw;}
@@ -37,7 +138,10 @@
 
 
 @media only screen and (min-width : 601px) {
-
+  .hero-wrapper .superimpose .caption,
+  .video-wrapper .caption {
+    top:50px;
+  }
 
 }
 @media only screen and (min-width : 993px) {

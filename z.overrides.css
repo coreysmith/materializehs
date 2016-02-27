@@ -570,6 +570,7 @@ input[type="text"]:focus:not([readonly]), input[type="password"]:focus:not([read
 .instagram:before,
 .pinterest:before,
 .youtube:before,
+.googleplus:before,
 .contact:before {
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -607,6 +608,7 @@ a.linkedin,
 a.instagram,
 a.pinterest,
 a.youtube,
+a.youtube,
 a.contact {
   border-bottom: 0px solid transparent;
           box-shadow: 0 0 0 transparent inset;
@@ -635,6 +637,7 @@ a.contact:hover {
 .instagram .inner,
 .pinterest .inner,
 .youtube .inner,
+.googleplus .inner,
 .contact .inner {font-size:0;}
 
 
@@ -646,6 +649,7 @@ a.contact:hover {
 .instagram:before{content:"";padding:5px 6px 3px;}
 .pinterest:before{content: "";padding:5px 8px 3px;}
 .youtube:before{content:"";padding:5px 5px 3px;}
+.googleplus:before{content:"";padding:5px 5px 3px;}
 .contact:before{content: "";padding:5px 6px 3px;font-size:1.3rem;}
 
 /*big icons*/
@@ -1115,11 +1119,11 @@ div.contextual-links-active a.contextual-links-trigger {background-color:transpa
 }
 @media only screen and (min-width : 993px) {
   .side-by-side .field-name-body,
-  .d7 .side-by-side .region-content,
-  .d8 .side-by-side .region-content,
+/*  .d7.side-by-side .region-content,
+  .d8.side-by-side .region-content,*/
   .hs .side-by-side .content-region {width:50%;float:left;padding:0 20px 0 0;}
-  .d7 .side-by-side form,
-  .d8 .side-by-side form {width:50%;float:left;padding:20px;margin-top:20px;}
+  .d7.side-by-side form,
+  .d8.side-by-side form {width:50%;float:left;padding:20px;margin-top:20px;}
 }
 
 @media only screen and (max-width: 992px) {

@@ -8,6 +8,8 @@ $(document).ready(function() {
         $('.field-name-field-tags a').addClass('waves-light waves-effect');
         $('.node-readmore').addClass('waves-dark waves-effect btn');
         $('.more-link').addClass('waves-dark waves-effect btn');
+        $('.preface-wrapper .caption a').addClass('button waves-light btn waves-effect');
+        $('.hs-button').addClass('button waves-light btn waves-effect');
         
         $('.parallax').parallax();
         
