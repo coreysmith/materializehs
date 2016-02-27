@@ -54,6 +54,8 @@
 .post-footer {margin-bottom:20px;min-height:25px;}
 .social-links ul.links {padding-left:0;}
 .please-share {list-style-type:none;display:inline;position:relative;top:-5px;margin-right:10px;}
+.hs_cos_wrapper_type_social_sharing a img {border-radius:2px;background-clip: padding-box;opacity: 0.9;}
+.hs_cos_wrapper_type_social_sharing a img:hover {opacity:1;}
 
 /* author section on blog */
 
@@ -78,6 +80,9 @@
 .about-author-sec h4 {
   font-size:110%;
 }
+
+.hs .social-tagline {position:relative;top:-14px;}
+.hs-author-social-links {text-align:center;}
 
 h3.comment-title {margin-bottom:-20px;margin-top:25px;font-size:1.25rem;}
 .post-footer .comment.depth-0 {border:1px solid #ddd;padding:10px;border-radius: 2px;background-clip: padding-box;}

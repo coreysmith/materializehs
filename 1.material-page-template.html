@@ -98,11 +98,12 @@
                                     {% image "image_upload" label='Image Upload', no_wrapper=True %}
                                 </div>
                                 {% endif %}
+                                <div class="content-body">
                                 {% rich_text "content-body" label="Body Content", html="<p>The Big Oxmox advised her not to do so, because there were thousands of bad , wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
 
 <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
 
-<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>", no_wrapper=True %}
+<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.</p>", no_wrapper=True %}</div>
                                  </div>
                             </div>                            
                         </div>
@@ -156,15 +157,16 @@
                         
                         <div class="social-links col s12">
                           <ul class="links inline">
-                            <li class="please-share">Please share this page:</li>
-                          {% widget_block social_sharing "social_share" label='Social Sharing', use_page_url=True, overrideable=True  %}
-                                  <li>{% widget_attribute "pinterest" is_json=True %}{"custom_link_format": "", "pinterest_media": "", "network": "pinterest", "img_src": "{{ settings.share_icon_pn }}"}{% end_widget_attribute %}</li>
-                                  <li>{% widget_attribute "twitter" is_json=True %}{"custom_link_format": "", "network": "twitter", "img_src": "{{ settings.share_icon_tw }}"}{% end_widget_attribute %}</li>
-                                  <li>{% widget_attribute "google_plus" is_json=True %}{"custom_link_format": "", "network": "google_plus", "img_src": "{{ settings.share_icon_gg }}"}{% end_widget_attribute %}</li>
-                                  <li>{% widget_attribute "linkedin" is_json=True %}{"custom_link_format": "", "network": "linkedin", "img_src": "{{ settings.share_icon_in }}"}{% end_widget_attribute %}</li>
-                                  <li>{% widget_attribute "facebook" is_json=True %}{"custom_link_format": "", "network": "facebook", "img_src": "{{ settings.share_icon_fb }}"}{% end_widget_attribute %}</li>
-                                  <li>{% widget_attribute "email" is_json=True %}{"custom_link_format": "", "network": "email", "img_src": "{{ settings.share_icon_ml }}"}{% end_widget_attribute %}</li>
-                          {% end_widget_block %}
+                              <li class="please-share">Please Share:</li>
+                              {% widget_block social_sharing "social_share" label='Social Sharing', use_page_url=True, overrideable=True %}
+                                         
+                                <li class="pinterest">{% widget_attribute "pinterest" is_json=True %}{"custom_link_format": "", "pinterest_media": "", "network": "pinterest", "img_src": "{{ settings.share_icon_pn }}"}{% end_widget_attribute %}</li>
+                                <li class="twitter">{% widget_attribute "twitter" is_json=True %}{"custom_link_format": "", "network": "twitter", "img_src": "{{ settings.share_icon_tw }}"}{% end_widget_attribute %}</li>
+                                <li class="googleplus">{% widget_attribute "google_plus" is_json=True %}{"custom_link_format": "", "network": "google_plus", "img_src": "{{ settings.share_icon_gg }}"}{% end_widget_attribute %}</li>
+                                <li class="linkedin">{% widget_attribute "linkedin" is_json=True %}{"custom_link_format": "", "network": "linkedin", "img_src": "{{ settings.share_icon_in }}"}{% end_widget_attribute %}</li>
+                                <li class="facebook">{% widget_attribute "facebook" is_json=True %}{"custom_link_format": "", "enabled": true, "network": "facebook", "img_src": "{{ settings.share_icon_fb }}"}{% end_widget_attribute %}</li>
+                                <li class="email">{% widget_attribute "email" is_json=True %}{"custom_link_format": "", "network": "email", "img_src": "{{ settings.share_icon_ml }}"}{% end_widget_attribute %}</li>
+                                {% end_widget_block %}
                           </ul>
                         </div>
                           
@@ -193,59 +195,59 @@
             {% endif %}
 
             {% if widget_data.long_page.value == '1-long-page-section' %}
-              <section id="1st-long-page-region" class="long-page-region wrapper">
+              <section id="first-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page1" label="Add first Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #1st-long-page-region -->
+              </section><!-- end #first-long-page-region -->
             {% elif widget_data.long_page.value == '2-long-page-sections' %}
-              <section id="1st-long-page-region" class="long-page-region wrapper">
+              <section id="first-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page1" label="Add first Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #1st-long-page-region -->
-              <section id="2nd-long-page-region" class="long-page-region wrapper">
+              </section><!-- end #first-long-page-region -->
+              <section id="second-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page2" label="Add 2nd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page2" label="Add second Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #2nd-long-page-region -->
+              </section><!-- end #second-long-page-region -->
             {% elif widget_data.long_page.value == '3-long-page-sections' %}
-              <section id="1st-long-page-region" class="long-page-region wrapper">
+              <section id="first-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page1" label="Add first Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #1st-long-page-region -->
-              <section id="2nd-long-page-region" class="long-page-region wrapper">
+              </section><!-- end #first-long-page-region -->
+              <section id="second-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page2" label="Add 2nd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page2" label="Add second Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #2nd-long-page-region -->
-              <section id="3rd-long-page-region" class="long-page-region wrapper">
+              </section><!-- end #second-long-page-region -->
+              <section id="third-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page3" label="Add 3rd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page3" label="Add third Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #3rd-long-page-region -->
+              </section><!-- end #third-long-page-region -->
             {% elif widget_data.long_page.value == '4-long-page-sections' %}
-              <section id="1st-long-page-region" class="long-page-region wrapper">
+              <section id="first-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page1" label="Add 1st Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page1" label="Add first Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #1st-long-page-region -->
-              <section id="2nd-long-page-region" class="long-page-region wrapper">
+              </section><!-- end #first-long-page-region -->
+              <section id="second-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page2" label="Add 2nd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page2" label="Add second Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #2nd-long-page-region -->
-              <section id="3rd-long-page-region" class="long-page-region wrapper">
+              </section><!-- end #second-long-page-region -->
+              <section id="third-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page3" label="Add 3rd Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page3" label="Add third Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #3rd-long-page-region -->
-              <section id="4th-long-page-region" class="long-page-region wrapper">
+              </section><!-- end #third-long-page-region -->
+              <section id="fourth-long-page-region" class="long-page-region wrapper">
                 <div class="inner">
-              {% raw_html "long_page4" label="Add 4th Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
+              {% raw_html "long_page4" label="Add fourth Long Page Section", value="<div class='container'><div class='inner row'></div></div>" %}
                 </div>
-              </section><!-- end #4th-long-page-region -->
+              </section><!-- end #fourth-long-page-region -->
               {% else %}
               {% endif %}
 

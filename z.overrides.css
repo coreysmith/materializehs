@@ -608,7 +608,7 @@ a.linkedin,
 a.instagram,
 a.pinterest,
 a.youtube,
-a.youtube,
+a.googleplus,
 a.contact {
   border-bottom: 0px solid transparent;
           box-shadow: 0 0 0 transparent inset;
@@ -623,6 +623,7 @@ a.linkedin:hover,
 a.instagram:hover,
 a.pinterest:hover,
 a.youtube:hover,
+a.googleplus:hover
 a.contact:hover {
   background-color:transparent;
 
@@ -649,7 +650,7 @@ a.contact:hover {
 .instagram:before{content:"";padding:5px 6px 3px;}
 .pinterest:before{content: "";padding:5px 8px 3px;}
 .youtube:before{content:"";padding:5px 5px 3px;}
-.googleplus:before{content:"";padding:5px 5px 3px;}
+.googleplus:before{content:"";padding:5px 3px 3px;}
 .contact:before{content: "";padding:5px 6px 3px;font-size:1.3rem;}
 
 /*big icons*/
@@ -911,8 +912,13 @@ ul#social-links li {
 .pinterest:hover:before{color:#fff;background-color:#CB2027;}
 .youtube:before{color:#C8302A;border-color:#C8302A;}
 .youtube:hover:before{color:#fff;background-color:#C8302A;}
+.googleplus:before{color:#E45E49;border-color:#E45E49;}
+.googleplus:hover:before{color:#fff;background-color:#E45E49;}
 .contact:before{color:#555;border-color:#555;}
 .contact:hover:before{color:#fff;background-color:#555;}
+
+
+
   
 /*mono chrome to multi chrome */
 .mono .home:before,
